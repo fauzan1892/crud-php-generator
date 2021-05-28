@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 26 Bulan Mei 2021 pada 01.59
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.2
+-- Host: localhost
+-- Generation Time: May 28, 2021 at 04:25 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hak_akses`
+-- Table structure for table `hak_akses`
 --
 
 CREATE TABLE `hak_akses` (
@@ -34,7 +33,7 @@ CREATE TABLE `hak_akses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `hak_akses`
+-- Dumping data for table `hak_akses`
 --
 
 INSERT INTO `hak_akses` (`id`, `hak_akses`) VALUES
@@ -43,30 +42,34 @@ INSERT INTO `hak_akses` (`id`, `hak_akses`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE `menu` (
   `id` int(11) NOT NULL,
   `name_menu` varchar(255) DEFAULT NULL,
+  `tabel` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   `redirect` varchar(255) DEFAULT NULL,
+  `akses` varchar(255) DEFAULT NULL,
   `active` varchar(255) DEFAULT NULL,
   `created_at` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `menu`
+-- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `name_menu`, `url`, `redirect`, `active`, `created_at`) VALUES
-(1, 'Dashboard', 'index.php', NULL, 'Y', '2021-05-26 11:30:20'),
-(2, 'Users', 'users/index.php', NULL, 'Y', '2021-05-26 11:30:20');
+INSERT INTO `menu` (`id`, `name_menu`, `tabel`, `url`, `redirect`, `akses`, `active`, `created_at`) VALUES
+(1, 'Dashboard', NULL, 'index.php', NULL, '1', 'Y', '2021-05-28 15:59:23'),
+(9, 'Users', 'users', 'users/index.php', NULL, '1', 'Y', '2021-05-27 17:59:47'),
+(13, 'Hak Akses', 'hak_akses', 'hak_akses/index.php', NULL, '1', 'Y', '2021-05-28 15:50:23'),
+(15, 'Barang', 'barang', 'barang/index.php', NULL, '1', 'Y', '2021-05-28 16:16:55');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -74,60 +77,61 @@ CREATE TABLE `users` (
   `name` varchar(255) DEFAULT NULL,
   `user` varchar(255) DEFAULT NULL,
   `pass` varchar(255) DEFAULT NULL,
-  `active` int(11) NOT NULL,
+  `akses` varchar(11) DEFAULT NULL,
+  `active` varchar(11) DEFAULT NULL,
   `created_at` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `user`, `pass`, `active`, `created_at`) VALUES
-(1, 'administrator', 'adminweb', '$2y$10$JSS7T8keFWR3HYYNLi1S4eyiMUy/mPF4TCPxVtlaow2L8GJqmlL06', 1, '2021-05-26 11:30:20');
+INSERT INTO `users` (`id`, `name`, `user`, `pass`, `akses`, `active`, `created_at`) VALUES
+(1, 'administrator', 'adminweb', '$2y$10$JSS7T8keFWR3HYYNLi1S4eyiMUy/mPF4TCPxVtlaow2L8GJqmlL06', '1', '1', '2021-05-26 11:30:20');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `hak_akses`
+-- Indexes for table `hak_akses`
 --
 ALTER TABLE `hak_akses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `menu`
+-- Indexes for table `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `hak_akses`
+-- AUTO_INCREMENT for table `hak_akses`
 --
 ALTER TABLE `hak_akses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `menu`
+-- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
