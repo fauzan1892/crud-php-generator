@@ -4,11 +4,12 @@
   | Codekop CRUD PHP Generator With Admin Template
   |--------------------------------------------------------------------------
   |
-  | @package   : php-generator-v1
+  | @package   : crud-php-generator
+  | @version   : v.1.0
   | @author    : fauzan1892
-  | @copyright : Copyright (c) 2019-2020 Codekop.com (https://www.codekop.com)
+  | @copyright : Copyright (c) 2021 Codekop.com (https://www.codekop.com)
   |
-  | free for everyone to development a simple crud generator project 
+  | free for everyone to development, a simple crud php pdo native generator project 
   | recommended php version for running is 7.0 but is run for php 5.6+
   | 
  */
