@@ -22,10 +22,10 @@
                             
                 <div class="form-group">
                                 <label for="">Full Name</label>
-                                <input type="text" class="form-control" value="<?= $edit->name;?>" name="name" id="name" placeholder=""/>
+                                <input type="text" class="form-control" required value="<?= $edit->name;?>" name="name" id="name" placeholder=""/>
                             </div>
                         
-                            <div class="form-group">
+                            <div class="form-group" required>
                                 <label for="">Akses</label>
                                 
                                 <?php 
@@ -43,16 +43,16 @@
                                 <?php $n++;}?>
                             </div>
             
-                            <div class="form-group">
+                            <div class="form-group" required>
                                 <label for="">Active</label>
                                 <select class="form-control" name="active">
                                     <option 
-                                        value="Y" 
+                                        value="1" 
                                         <?php if($edit->active == '1'){ echo 'selected';}?>>
                                         Y
                                     </option>
                                     <option 
-                                        value="N" 
+                                        value="0" 
                                         <?php if($edit->active == '0'){ echo 'selected';}?>>
                                         N
                                     </option>
@@ -61,12 +61,12 @@
                         
                             <div class="form-group">
                                 <label for="">Username</label>
-                                <input type="text" class="form-control" value="<?= $edit->user;?>" name="user" id="user" placeholder=""/>
+                                <input type="text" class="form-control" required value="<?= $edit->user;?>" name="user" id="user" placeholder=""/>
                             </div>
                         
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="password" class="form-control" value="" name="pass" id="pass" placeholder=""/>
+                                <input type="password" class="form-control" required value="" name="pass" id="pass" placeholder=""/>
                             </div>
             
                             <input type="hidden" name="id" value="<?= $id;?>">

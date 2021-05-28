@@ -35,7 +35,7 @@
             <tr>
                 <td><?= $no;?></td>
           
-            <td><?=$r->hak_akses;?></td>
+            <td><?=$r->hak_akses;?> (<?=$r->id;?>)</td>
                 <td>
                     <a href="<?= "edit.php?id=".$r->id;?>" 
                         class="btn btn-success btn-sm" title="Edit">

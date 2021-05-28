@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 28, 2021 at 04:25 PM
+-- Generation Time: May 28, 2021 at 05:14 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -37,7 +37,8 @@ CREATE TABLE `hak_akses` (
 --
 
 INSERT INTO `hak_akses` (`id`, `hak_akses`) VALUES
-(1, 'Admin');
+(1, 'Admin'),
+(5, 'Users');
 
 -- --------------------------------------------------------
 
@@ -61,10 +62,9 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id`, `name_menu`, `tabel`, `url`, `redirect`, `akses`, `active`, `created_at`) VALUES
-(1, 'Dashboard', NULL, 'index.php', NULL, '1', 'Y', '2021-05-28 15:59:23'),
+(1, 'Dashboard', NULL, 'index.php', NULL, '1,5', 'Y', '2021-05-28 17:00:00'),
 (9, 'Users', 'users', 'users/index.php', NULL, '1', 'Y', '2021-05-27 17:59:47'),
-(13, 'Hak Akses', 'hak_akses', 'hak_akses/index.php', NULL, '1', 'Y', '2021-05-28 15:50:23'),
-(15, 'Barang', 'barang', 'barang/index.php', NULL, '1', 'Y', '2021-05-28 16:16:55');
+(13, 'Hak Akses', 'hak_akses', 'hak_akses/index.php', NULL, '1', 'Y', '2021-05-28 17:07:20');
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `user`, `pass`, `akses`, `active`, `created_at`) VALUES
-(1, 'administrator', 'adminweb', '$2y$10$JSS7T8keFWR3HYYNLi1S4eyiMUy/mPF4TCPxVtlaow2L8GJqmlL06', '1', '1', '2021-05-26 11:30:20');
+(1, 'administrator', 'adminweb', '$2y$10$JSS7T8keFWR3HYYNLi1S4eyiMUy/mPF4TCPxVtlaow2L8GJqmlL06', '1', '1', '2021-05-26 11:30:20'),
+(3, 'Fauzan Falah', 'fauzan', '$2y$10$5CVqNn3.P3FZiRggDpNdHOJxPIrN6muFNaIjIFxXK/fXzmJqOqGU6', '5', '1', '2021-05-28 17:14:21');
 
 --
 -- Indexes for dumped tables
@@ -119,7 +120,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `hak_akses`
 --
 ALTER TABLE `hak_akses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `menu`
@@ -131,7 +132,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

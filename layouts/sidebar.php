@@ -24,23 +24,19 @@
                     // akses
                     if(getSegments('4') == $url[0]) 
                     {
-                        
                         $akses = explode(',',$r->akses);
-
                         if(!empty($akses[0])){
-                            foreach ($akses as $l => $v) {
-                                if($v != $user->akses)
-                                {
-                                    redirect($baseURL.'404.php');
-                                }
+                            if (in_array("$user->akses", $akses)){
+                                // echo "found";
+                            }else{
+                                redirect($baseURL.'404.php');
                             }
                         }else{
                             if($r->akses != $user->akses)
                             {
-                               redirect($baseURL.'404.php');
+                                redirect($baseURL.'404.php');
                             }
                         }
-
                         if(isset($r->redirect))
                         {
                             redirect($baseURL.$r->redirect);
@@ -48,6 +44,24 @@
                     }
                 if($r->active == 'Y')
                 {
+                    $akses1 = explode(',',$r->akses);
+                    if(!empty($akses1[0])){
+                        if (in_array("$user->akses", $akses1)){
+                            // echo "found";
+                            $cekhref = 'Yes';
+                        }else{
+                            $cekhref = 'No';
+                        }
+                    }else{
+                        if($r->akses != $user->akses)
+                        {
+                            $cekhref = 'No';
+                        }else{
+                            $cekhref = 'Yes';
+                        }
+                    }
+                    if($cekhref == 'Yes')
+                    {
             ?>
             <li <?php if(getSegments('4') == $url[0]){?> class="active" <?php }?>>
                 <a href="<?= $baseURL.$r->url;?>">
@@ -55,13 +69,15 @@
                     <p><?=$r->name_menu;?></p>
                 </a>
             </li>
-            <?php }}?>
+            <?php }}}?>
+            <?php if($user->akses == 1) {?>
             <li <?php if(getSegments('4') == 'generator'){?> class="active" <?php }?>>
                 <a href="<?= $baseURL.'generator/index.php';?>">
                     <i class="pe-7s-settings"></i>
                     <p>CRUD Generator</p>
                 </a>
             </li>
+            <?php }?>
         </ul>
     </div>
 </div>

@@ -72,10 +72,6 @@
 
                                 <?php $n++;}?>
                             </div>
-                            <div class="form-group">
-                                <label for="">Created at</label>
-                                <input type="text" class="form-control" value="<?= $edit->created_at;?>" name="created_at" id="created_at" placeholder=""/>
-                            </div>
                             <input type="hidden" class="form-control" value="<?= $edit->id;?>" name="id" placeholder=""/>
                             <button type="submit" class="btn btn-primary btn-md">Save</button>
                             <a href="index.php" class="btn btn-danger btn-md">Back</a>

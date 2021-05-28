@@ -20,14 +20,20 @@
             $hsl = $row->fetch();
             if(password_verify($pass,$hsl['pass']))
             {
-                $_SESSION['codekop_session'] = $hsl;
-                echo "<script>alert('Login Sukses');window.location='index.php';</script>";
+                if($hsl['active'] == '1')
+                {
+                    $_SESSION['codekop_session'] = $hsl;
+                    echo "<script>window.location='index.php';</script>";
+                }else{
+                    // jika salah
+                    echo "<script>alert('Login di Banned !');window.location='login.php';</script>";
+                }
             }else{
-                echo "<script>alert('Login Gagal');window.location='login.php';</script>";
+                echo "<script>alert('Login Gagal !');window.location='login.php';</script>";
             }
         }else{
             // jika salah
-            echo "<script>alert('Login Gagal');window.location='login.php';</script>";
+            echo "<script>alert('Login Gagal !');window.location='login.php';</script>";
         }
     }
 ?>
