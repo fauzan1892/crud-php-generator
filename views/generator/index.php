@@ -4,6 +4,7 @@
             <div class="col-md-12">
                 <?php if(!empty(flashdata())){ echo flashdata(); }?>
                 <a href="tambah.php" class="btn btn-primary" role="button">Add Generator</a>
+                <a href="urutan.php" class="btn btn-primary" role="button">Urutan Menu</a>
                 <br><br>
                 <div class="card">
                     <div class="header">

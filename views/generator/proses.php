@@ -393,3 +393,15 @@ $data4 = '
         }
 
     }
+
+    if(!empty($_GET['aksi'] == 'order')) {
+ 
+        $orderlist = explode(',', $_POST['order']);
+        foreach ($orderlist as $k => $order) {
+            $sql = "UPDATE menu SET urutan = $k+1 WHERE id = $order";
+            $row = $connectdb->prepare($sql);
+            $row->execute();
+        }  
+        echo 'sukses';
+    }
+   

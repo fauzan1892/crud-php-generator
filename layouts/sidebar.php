@@ -17,7 +17,7 @@
             <?php
                 $id     = (int)$_SESSION['codekop_session']['id'];
                 $user   = $connectdb->query("SELECT * FROM users WHERE id = $id")->fetch(PDO::FETCH_OBJ);
-                $sql    = "SELECT * FROM menu ORDER by name_menu ASC";
+                $sql    = "SELECT * FROM menu ORDER by urutan ASC";
                 $menus  = $connectdb->query($sql)->fetchAll(PDO::FETCH_OBJ);
                 foreach($menus as $r){
                     $url = explode('/',$r->url);
@@ -25,8 +25,10 @@
                     if(getSegments('4') == $url[0]) 
                     {
                         $akses = explode(',',$r->akses);
-                        if(!empty($akses[0])){
-                            if (in_array("$user->akses", $akses)){
+                        if(!empty($akses[0]))
+                        {
+                            if (in_array("$user->akses", $akses))
+                            {
                                 // echo "found";
                             }else{
                                 redirect($baseURL.'404.php');
@@ -45,8 +47,10 @@
                 if($r->active == 'Y')
                 {
                     $akses1 = explode(',',$r->akses);
-                    if(!empty($akses1[0])){
-                        if (in_array("$user->akses", $akses1)){
+                    if(!empty($akses1[0]))
+                    {
+                        if (in_array("$user->akses", $akses1))
+                        {
                             // echo "found";
                             $cekhref = 'Yes';
                         }else{
