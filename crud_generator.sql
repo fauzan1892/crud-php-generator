@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 28, 2021 at 05:14 PM
+-- Generation Time: Jun 08, 2021 at 11:44 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -54,6 +54,7 @@ CREATE TABLE `menu` (
   `redirect` varchar(255) DEFAULT NULL,
   `akses` varchar(255) DEFAULT NULL,
   `active` varchar(255) DEFAULT NULL,
+  `urutan` int(11) NOT NULL,
   `created_at` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -61,10 +62,10 @@ CREATE TABLE `menu` (
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `name_menu`, `tabel`, `url`, `redirect`, `akses`, `active`, `created_at`) VALUES
-(1, 'Dashboard', NULL, 'index.php', NULL, '1,5', 'Y', '2021-05-28 17:00:00'),
-(9, 'Users', 'users', 'users/index.php', NULL, '1', 'Y', '2021-05-27 17:59:47'),
-(13, 'Hak Akses', 'hak_akses', 'hak_akses/index.php', NULL, '1', 'Y', '2021-05-28 17:07:20');
+INSERT INTO `menu` (`id`, `name_menu`, `tabel`, `url`, `redirect`, `akses`, `active`, `urutan`, `created_at`) VALUES
+(1, 'Dashboard', NULL, 'index.php', NULL, '1,5', 'Y', 1, '2021-05-28 17:00:00'),
+(9, 'Users', 'users', 'users/index.php', NULL, '1', 'Y', 2, '2021-05-27 17:59:47'),
+(13, 'Hak Akses', 'hak_akses', 'hak_akses/index.php', NULL, '1', 'Y', 3, '2021-05-28 17:07:20');
 
 -- --------------------------------------------------------
 

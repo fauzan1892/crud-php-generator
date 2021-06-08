@@ -4,7 +4,7 @@
 
         $table = getPost('table', TRUE);
 
-        $column = $connectdb->prepare("SELECT 1 FROM $table LIMIT 1");
+        /* $column = $connectdb->prepare("SELECT 1 FROM $table LIMIT 1");
         $column->execute();
         $tcount = $column->rowCount();
 
@@ -13,7 +13,7 @@
             set_flashdata("Gagal","Tabel tidak ditemukan !","danger");
             redirect("tambah.php");
             exit;
-        }
+        }*/
 
         $kolom = $connectdb->prepare("SELECT * FROM $table LIMIT 0");
         $kolom->execute();
