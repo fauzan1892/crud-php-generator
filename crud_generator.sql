@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 08, 2021 at 11:44 AM
+-- Generation Time: Jun 12, 2021 at 12:52 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -54,7 +54,7 @@ CREATE TABLE `menu` (
   `redirect` varchar(255) DEFAULT NULL,
   `akses` varchar(255) DEFAULT NULL,
   `active` varchar(255) DEFAULT NULL,
-  `urutan` int(11) NOT NULL,
+  `urutan` int(11) NOT NULL DEFAULT 0,
   `created_at` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
