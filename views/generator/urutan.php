@@ -56,7 +56,7 @@
         </div>
     </div>      
 </div>
-<<script>
+<script>
     $("#sortable1").sortable();
     function saveOrder(){
         var menuorder="";
